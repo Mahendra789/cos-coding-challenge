@@ -1,0 +1,29 @@
+<section class="dashboard">
+    <main>
+        <header>
+            <h2><span>Hello</span> {{email}}</h2>
+            <button mat-icon-button matTooltip="Logout" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </header>
+        <div class="card-holder">
+            <div *ngFor="let car of carDetailsList?.items" class="card-details">
+                <div class="card-image" style="background-image:url('{{car.associatedVehicle.vehicleImages[0].url}}')">
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                    <div class="card-item"> <span>Name : </span>{{car.label}}</div>
+                    <div class="card-item"> <span>Current highest bid : </span>€{{car.currentHighestBidValue}}</div>
+                    <div class="card-item"> <span>Remaining time : </span>{{getFormattedDate(car.endingTime)}}</div>
+                    <div class="card-item"> <span>Am i highest bidder : </span>{{car.amIHighestBidder}}</div>
+                    <div class="card-item"> <span>Fuel type : </span>{{car.associatedVehicle.fuelType}}</div>
+                    <div class="card-item"> <span>Mileage in Km : </span>{{car.associatedVehicle.mileageInKm}}</div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+    <div class="loader" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </div>
+</section>
