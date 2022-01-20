@@ -35,8 +35,8 @@ export class CosService {
   getAuctions(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'authtoken': this.currentUser.token,
-        'userid': this.currentUser.userId
+        'authtoken': this.currentUser?.token,
+        'userid': this.currentUser?.userId
       })
     }
     return this.http.get(
